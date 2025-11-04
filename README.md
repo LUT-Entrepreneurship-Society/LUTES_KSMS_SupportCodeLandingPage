@@ -24,6 +24,12 @@ A landing page that helps supporters link their Plussa card to K-Supermarket Sam
    - Explains why supporting matters
    - Shows example impact calculations
 
+5. **Click Counter (Internal)**
+   - Tracks clicks on the primary CTA button
+   - Stores count in browser localStorage
+   - For internal analytics only (not displayed to users)
+   - Access count via browser console: `localStorage.getItem('lutes_supporter_clicks')`
+
 ### Technical Details
 
 - **Support Code**: SP10076

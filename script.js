@@ -7,6 +7,21 @@
   // year
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Click counter (internal tracking - stored in localStorage)
+  const COUNTER_KEY = 'lutes_supporter_clicks';
+  
+  function getClickCount() {
+    const count = localStorage.getItem(COUNTER_KEY);
+    return count ? parseInt(count, 10) : 0;
+  }
+  
+  function incrementCounter() {
+    const currentCount = getClickCount();
+    const newCount = currentCount + 1;
+    localStorage.setItem(COUNTER_KEY, newCount.toString());
+    return newCount;
+  }
+
   // Copy
   const hint = document.getElementById('hint');
   const copyBtn = document.getElementById('copy');
@@ -23,6 +38,9 @@
 
   // CTA
   document.getElementById('cta').addEventListener('click', () => {
+    // Increment click counter
+    incrementCounter();
+    
     // Open auto link then fallback to sponsorship page (helps if params are ignored)
     window.open(AUTO_LINK, '_blank', 'noopener');
     setTimeout(()=>window.open(PLUSSA_SPONSOR_URL, '_blank', 'noopener'), 350);
