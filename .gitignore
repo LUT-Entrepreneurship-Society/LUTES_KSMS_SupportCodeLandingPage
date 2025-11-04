@@ -30,3 +30,6 @@ yarn-error.log*
 *.bak
 *.backup
 
+# Node modules (if accidentally installed)
+node_modules/
+
