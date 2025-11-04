@@ -1,0 +1,326 @@
+:root{
+  /* Dark theme colors */
+  --bg-dark:#1a1a1a;           /* Main dark background */
+  --bg-darker:#0f0f0f;         /* Even darker for contrast */
+  --card-dark:#262626;          /* Dark grey for cards */
+  --card-darker:#1f1f1f;       /* Darker cards */
+  
+  /* Text colors */
+  --text-primary:#ffffff;       /* White text */
+  --text-secondary:#b3b3b3;    /* Light grey text */
+  --text-muted:#808080;        /* Muted grey text */
+  
+  /* Header colors */
+  --header-bg:#000000;          /* Black header */
+  --header-text:#ffffff;        /* White header text */
+  
+  /* Accent colors (keep LUTES blue for brand consistency) */
+  --primary:#303f9f;           /* LUTES dark blue */
+  --accent:#c5cae9;             /* LUTES light blue */
+  
+  /* Legacy colors for compatibility */
+  --ink:#ffffff;                /* White for dark theme */
+  --muted:#b3b3b3;              /* Light grey for muted text */
+  --bg:#1a1a1a;                /* Dark background */
+  --card:#262626;               /* Dark card background */
+  
+  /* Utilities */
+  --radius:24px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md:0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg:0 12px 24px rgba(0,0,0,0.5);
+  
+  /* Colorful accent colors for feature cards */
+  --color-lime:#a8e063;         /* Lime green */
+  --color-blue:#4a90e2;        /* Royal blue */
+  --color-magenta:#e74c3c;      /* Magenta/red */
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;
+  color:var(--text-primary);
+  background:var(--bg-dark);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 24px;
+}
+
+header{
+  position:sticky;
+  top:0;
+  background:var(--header-bg);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  z-index:100;
+  box-shadow:var(--shadow-md);
+}
+
+header .row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px 24px;
+  position:relative;
+}
+
+header .row a{
+  position:absolute;
+  right:24px;
+}
+
+.logo{
+  height:40px;
+  width:auto;
+  object-fit:contain;
+}
+
+.badge{
+  display:inline-block;
+  background:var(--accent);
+  color:var(--primary);
+  padding:8px 16px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:0.3px;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+.grid{display:grid;gap:32px;grid-template-columns:1fr}
+
+.card{
+  background:var(--card-dark);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius);
+  padding:40px;
+  box-shadow:var(--shadow-md);
+  transition:all 0.3s ease;
+}
+
+.card:hover{
+  box-shadow:var(--shadow-lg);
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,0.12);
+}
+
+/* Colorful feature cards */
+.card-feature-lime{
+  background:var(--color-lime);
+  color:#000000;
+}
+
+.card-feature-blue{
+  background:var(--color-blue);
+  color:#ffffff;
+}
+
+.card-feature-magenta{
+  background:var(--color-magenta);
+  color:#ffffff;
+}
+
+h1{
+  font-size:clamp(36px,5vw,56px);
+  line-height:1.1;
+  margin:0 0 20px;
+  font-weight:800;
+  letter-spacing:-0.02em;
+  color:var(--text-primary);
+}
+
+h2{
+  font-size:clamp(22px,3vw,28px);
+  margin:0 0 16px;
+  font-weight:700;
+  letter-spacing:-0.01em;
+  color:var(--text-primary);
+}
+
+p{
+  margin:16px 0;
+  font-size:18px;
+  line-height:1.7;
+  color:var(--text-secondary);
+}
+
+.muted{color:var(--text-muted)}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:32px;
+  justify-content:center;
+}
+
+.btn{
+  appearance:none;
+  border:0;
+  border-radius:16px;
+  padding:16px 28px;
+  font-weight:700;
+  font-size:16px;
+  cursor:pointer;
+  transition:all 0.2s ease;
+  letter-spacing:0.2px;
+}
+
+.btn-primary{
+  background:var(--primary);
+  color:#fff;
+  box-shadow:0 8px 20px rgba(48,63,159,0.5);
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(48,63,159,0.6);
+}
+
+.btn-primary:active{transform:scale(0.98)}
+
+.btn-secondary{
+  background:var(--card-dark);
+  border:2px solid rgba(255,255,255,0.2);
+  color:var(--text-primary);
+}
+
+.btn-secondary:hover{
+  border-color:var(--primary);
+  background:var(--card-darker);
+}
+
+.hint{
+  font-size:14px;
+  color:var(--text-muted);
+  margin-top:16px;
+  line-height:1.6;
+}
+
+
+ol.steps{
+  display:grid;
+  gap:20px;
+  grid-template-columns:1fr;
+  list-style:none;
+  counter-reset:step-counter;
+  margin:24px 0;
+  padding:0;
+}
+
+
+.step{
+  background:var(--card-dark);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;
+  padding:24px;
+  padding-right:70px;
+  position:relative;
+  counter-increment:step-counter;
+  color:var(--text-secondary);
+}
+
+.step::before{
+  content:counter(step-counter);
+  position:absolute;
+  top:20px;
+  right:20px;
+  width:36px;
+  height:36px;
+  background:var(--primary);
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:16px;
+}
+
+.step strong{
+  color:var(--text-primary);
+  font-weight:700;
+}
+
+footer{
+  border-top:1px solid rgba(255,255,255,0.1);
+  background:var(--bg-darker);
+  margin-top:80px;
+  color:var(--text-secondary);
+}
+
+footer .row{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  padding:40px 24px;
+}
+
+a{
+  color:var(--text-primary);
+  text-decoration:none;
+  font-weight:600;
+  transition:opacity 0.2s ease;
+}
+
+a:hover{
+  opacity:0.8;
+  color:var(--accent);
+}
+
+/* Hero section enhancements */
+.hero-section{
+  padding:64px 0 48px;
+  color:var(--text-primary);
+}
+
+main.container{
+  padding:48px 24px;
+}
+
+/* Colorful card text overrides */
+.card-feature-lime h2,
+.card-feature-lime p,
+.card-feature-lime .muted,
+.card-feature-lime strong{
+  color:#000000;
+}
+
+.card-feature-blue h2,
+.card-feature-blue p,
+.card-feature-blue .muted,
+.card-feature-blue strong,
+.card-feature-magenta h2,
+.card-feature-magenta p,
+.card-feature-magenta .muted,
+.card-feature-magenta strong{
+  color:#ffffff;
+}
+
+/* Link styling within cards */
+.card a{
+  color:var(--primary);
+  text-decoration:underline;
+}
+
+.card-feature-lime a{
+  color:#000000;
+  font-weight:700;
+}
+
+.card-feature-blue a,
+.card-feature-magenta a{
+  color:#ffffff;
+  font-weight:700;
+}
+
